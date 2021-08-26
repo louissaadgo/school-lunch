@@ -1,9 +1,16 @@
 package main
 
 import (
-	"fmt"
+	"os"
+
+	"github.com/gofiber/fiber/v2"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	fmt.Println("Initial Setup")
+	app := fiber.New()
+
+	godotenv.Load()
+
+	app.Listen(":" + os.Getenv("PORT"))
 }
